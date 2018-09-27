@@ -1,0 +1,10 @@
+module Terceros{
+   interface Tercero{
+    boolean insertarTercero(in wstring nombres, in wstring apellidos, in wstring telefonos);
+    boolean actualizarTercero(in long id, in wstring nombres, in wstring apellidos, in wstring telefonos);
+    boolean eliminarTercero(in long id);
+    wstring consultarTercero(in long id);
+
+    oneway void shoutdown();
+   };
+};
