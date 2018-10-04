@@ -35,6 +35,8 @@ public class Tercero extends TerceroPOA {
                         +rs.getString(3)+ "-"
                         +rs.getNString(4);
             }
+            rs.close();
+            objConec.conex.close();
             
         }catch(Exception e){
             System.out.println("Error"+e.getMessage());
