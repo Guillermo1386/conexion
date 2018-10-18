@@ -5,6 +5,17 @@
  */
 package Terceros;
 
+import javax.swing.JOptionPane;
+import org.omg.CORBA.Context;
+import org.omg.CORBA.ContextList;
+import org.omg.CORBA.DomainManager;
+import org.omg.CORBA.ExceptionList;
+import org.omg.CORBA.NVList;
+import org.omg.CORBA.NamedValue;
+import org.omg.CORBA.Policy;
+import org.omg.CORBA.Request;
+import org.omg.CORBA.SetOverrideType;
+
 
 public class java extends javax.swing.JFrame {
 
@@ -34,81 +45,197 @@ public class java extends javax.swing.JFrame {
         txttelefono = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        btnconsultar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtid = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btbguardar.setText("Guardar");
+        btbguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbguardarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btbguardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 113, -1, -1));
 
         btbeliminar.setText("Eliminar");
+        btbeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbeliminarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btbeliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 153, -1, -1));
 
         btblimpiar.setText("Limpiar");
+        getContentPane().add(btblimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 203, -1, -1));
 
         lblnombre.setText("Nombre");
+        getContentPane().add(lblnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 121, -1, -1));
 
         lblapellido.setText("Apellido");
+        getContentPane().add(lblapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 161, -1, -1));
 
         lbltelefono.setText("Telefono");
+        getContentPane().add(lbltelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 203, -1, -1));
+        getContentPane().add(txtnombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 117, 107, -1));
+        getContentPane().add(txtapellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 157, 107, -1));
+        getContentPane().add(txttelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 207, 104, -1));
 
         jTable1.setModel(model table);
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblnombre)
-                    .addComponent(lblapellido)
-                    .addComponent(lbltelefono))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btbguardar)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btblimpiar)
-                            .addComponent(btbeliminar))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblnombre)
-                                .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btbguardar))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btbeliminar)
-                                .addComponent(lblapellido))
-                            .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btblimpiar)
-                                .addComponent(lbltelefono))
-                            .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(271, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(362, 35, 570, 150));
+
+        btnconsultar.setText("Consultar");
+        getContentPane().add(btnconsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 239, -1, -1));
+
+        jLabel1.setText("Terceros");
+        jLabel1.setDoubleBuffered(true);
+        jLabel1.setIconTextGap(6);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 6, 96, 50));
+
+        txtid.setText("id");
+        getContentPane().add(txtid, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 81, 45, -1));
+
+        jTextField1.setText("0");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 77, 107, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void btbguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbguardarActionPerformed
+    Tercero objTercero = new Tercero() {
+        @Override
+        public boolean insertarTercero(String nombres, String apellidos, String telefonos) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean actualizarTercero(int id, String nombres, String apellidos, String telefonos) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean eliminarTercero(int id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public String consultarTercero(int id) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void shoutdown() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean _is_a(String repositoryIdentifier) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean _is_equivalent(org.omg.CORBA.Object other) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public boolean _non_existent() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public int _hash(int maximum) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public org.omg.CORBA.Object _duplicate() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public void _release() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public org.omg.CORBA.Object _get_interface_def() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Request _request(String operation) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Request _create_request(Context ctx, String operation, NVList arg_list, NamedValue result) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Request _create_request(Context ctx, String operation, NVList arg_list, NamedValue result, ExceptionList exclist, ContextList ctxlist) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public Policy _get_policy(int policy_type) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public DomainManager[] _get_domain_managers() {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+
+        @Override
+        public org.omg.CORBA.Object _set_policy_override(Policy[] policies, SetOverrideType set_add) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
+    };
+    String nombres = txtnombre.toString();
+    String apellido = txtapellido.toString();
+    String telefono = txttelefono.toString();
+    int id = Integer.parseInt(txtid.toString());
+    
+    if (id == 0){
+        boolean resultado = objTercero.insertarTercero(nombres, apellido, telefono);
+        if(resultado == true){
+            JOptionPane.showMessageDialog(null, "Se inserto un nuevo registro");
+            //cargarTabla();
+            
+        }else {
+            JOptionPane.showMessageDialog(null, "Error al insertar");
+        }
+    }else{
+        boolean resultado = objTercero.actualizarTercero(id, nombres, apellido, telefono);
+        if(resultado == true){
+            JOptionPane.showInternalMessageDialog(null, "Se actulizo registro");
+            //cargarTabla();
+        }else {
+            JOptionPane.showMessageDialog(null, "Error al actulizar");
+        }
+              
+    }  
+    }//GEN-LAST:event_btbguardarActionPerformed
+
+    private void btbeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbeliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btbeliminarActionPerformed
 
   
     public static void main(String args[]) {
@@ -145,12 +272,16 @@ public class java extends javax.swing.JFrame {
     private javax.swing.JButton btbeliminar;
     private javax.swing.JButton btbguardar;
     private javax.swing.JButton btblimpiar;
+    private javax.swing.JButton btnconsultar;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblapellido;
     private javax.swing.JLabel lblnombre;
     private javax.swing.JLabel lbltelefono;
     private javax.swing.JTextField txtapellido;
+    private javax.swing.JLabel txtid;
     private javax.swing.JTextField txtnombre;
     private javax.swing.JTextField txttelefono;
     // End of variables declaration//GEN-END:variables
@@ -167,6 +298,18 @@ public class java extends javax.swing.JFrame {
             }
 
             public EventQueue() {
+            }
+        }
+
+        private static class event {
+
+            public event() {
+            }
+
+            private static class ActionEvent {
+
+                public ActionEvent() {
+                }
             }
         }
     }
